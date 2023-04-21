@@ -2,7 +2,7 @@
 # Contributor: Fabian Bornschein <fabiscafe-cat-mailbox-dog-com>
 
 pkgname=supergfxctl
-pkgver=5.0.1
+pkgver=5.1.0-RC5
 pkgrel=2
 pkgdesc="A utility for Linux graphics switching on Intel/AMD iGPU + nVidia dGPU laptops"
 arch=('x86_64')
