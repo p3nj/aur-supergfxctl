@@ -2,7 +2,8 @@
 # Contributor: Fabian Bornschein <fabiscafe-cat-mailbox-dog-com>
 
 pkgname=supergfxctl
-pkgver=5.1.0-RC5
+pkgver=5.1.0
+subpkg=RC5
 pkgrel=2
 pkgdesc="A utility for Linux graphics switching on Intel/AMD iGPU + nVidia dGPU laptops"
 arch=('x86_64')
@@ -13,17 +14,17 @@ makedepends=('rust')
 provides=('supergfxctl')
 conflicts=('supergfxctl-git'
            'optimus-manager')
-source=("https://gitlab.com/asus-linux/supergfxctl/-/archive/$pkgver/supergfxctl-$pkgver.tar.gz")
-sha512sums=('de2658a769b2d0d2a4999b9c5f307c80f78797098ec7ef990d32d717dbde4f83ed0d7df22c33677699c1208593d918c3354eac6aee7319c2bda25168c71c4fe6')
+source=("https://gitlab.com/asus-linux/supergfxctl/-/archive/$pkgver-$subpkg/supergfxctl-$pkgver-$subpkg.tar.gz")
+sha512sums=('4ddad0b913c311be435f61d90ad3968c671de3a874cbb271a71f58f0a54d9ea37447d535cb6f1aca84a7a761e4869dfb3a1a6f4e4840062dbc48be5c67837e48')
 _gitdir=${pkgname%"-git"}
 
 build() {
-	cd "$pkgname-$pkgver"
+	cd "$pkgname-$pkgver-$subpkg"
 	make build
 }
 
 package() {
-	cd "$pkgname-$pkgver"
-	make DESTDIR="$pkgdir" install
+	cd "$pkgname-$pkgver-$subpkg"
+	make DESTDIR="$pkgdir-$subpkg" install
 }
 
